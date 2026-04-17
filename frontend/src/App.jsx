@@ -242,7 +242,7 @@ function CreateModal({ onClose, onSuccess }) {
         {F("title","Vault Title *","text","Fund my indie game")}
         {F("desc","Description","textarea","What are you raising funds for?")}
         <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:"1rem"}}>
-          {F("goal","Goal (ETH) *","number","1.0")}
+          {F("goal","Goal (XLM) *","number","100")}
           {F("days","Duration (days) *","number","14")}
         </div>
         <TxStatus s={txState}/>
@@ -268,7 +268,7 @@ function VaultModal({ vault, account, onClose, onSuccess }) {
   const busy      = txState.status==="waiting"||txState.status==="pending";
 
   const doPledge = async () => {
-    if (!amt||parseFloat(amt)<=0) { setAmtErr("Enter a valid ETH amount"); return; }
+    if (!amt||parseFloat(amt)<=0) { setAmtErr("Enter a valid XLM amount"); return; }
     setAmtErr("");
     try { await pledgeToVault(vault.id, amt); onSuccess(); } catch{}
   };
@@ -296,8 +296,8 @@ function VaultModal({ vault, account, onClose, onSuccess }) {
         {/* Progress */}
         <Bar pct={pct} status={status}/>
         <div style={{display:"flex",justifyContent:"space-between",marginTop:9,fontSize:".84rem"}}>
-          <span style={{fontWeight:600,fontFamily:"var(--mono)"}}>{fmt.eth(vault.raised)} ETH raised</span>
-          <span style={{color:"var(--dim)"}}>of {fmt.eth(vault.goal)} ETH goal</span>
+          <span style={{fontWeight:600,fontFamily:"var(--mono)"}}>{fmt.eth(vault.raised)} XLM raised</span>
+          <span style={{color:"var(--dim)"}}>of {fmt.eth(vault.goal)} XLM goal</span>
         </div>
         <div style={{display:"flex",justifyContent:"space-between",marginTop:4,fontSize:".73rem",color:"var(--dim)",fontFamily:"var(--mono)"}}>
           <span>{pct}% funded</span>
@@ -310,13 +310,13 @@ function VaultModal({ vault, account, onClose, onSuccess }) {
         {status==="active"&&(
           <div style={{display:"flex",gap:".75rem"}}>
             <div style={{flex:1}}>
-              <input type="number" min=".001" step=".001" placeholder="0.1 ETH"
+              <input type="number" min="0.1" step="0.1" placeholder="10 XLM"
                 value={amt} onChange={e=>{setAmt(e.target.value);setAmtErr("")}}
                 style={amtErr?{borderColor:"var(--r)"}:{}}/>
               {amtErr&&<p style={{color:"var(--r)",fontSize:".73rem",marginTop:3}}>{amtErr}</p>}
             </div>
             <Btn onClick={doPledge} loading={busy}>
-              {txState.status==="waiting"?"Confirm…":"Pledge ETH"}
+              {txState.status==="waiting"?"Confirm…":"Pledge XLM"}
             </Btn>
           </div>
         )}
@@ -380,7 +380,7 @@ function VaultCard({ vault, account, onRefetch, delay=0 }) {
         )}
         <Bar pct={pct} status={status}/>
         <div style={{display:"flex",justifyContent:"space-between",marginTop:10,fontSize:".81rem"}}>
-          <span style={{fontWeight:600,fontFamily:"var(--mono)"}}>{fmt.eth(vault.raised)}/{fmt.eth(vault.goal)} ETH</span>
+          <span style={{fontWeight:600,fontFamily:"var(--mono)"}}>{fmt.eth(vault.raised)}/{fmt.eth(vault.goal)} XLM</span>
           <span style={{color:"var(--dim)",fontFamily:"var(--mono)"}}>{fmt.timeLeft(vault.deadline,status)}</span>
         </div>
         <div style={{marginTop:4,fontSize:".71rem",color:"var(--dim)"}}>
@@ -436,7 +436,7 @@ export default function App() {
             background:W.isCorrectNetwork?"var(--brd)":"var(--r)",
             color:W.isCorrectNetwork?"var(--dim)":"#fff",
             borderRadius:4,padding:"2px 7px"}}>
-            {W.chainId === 11155111 ? "SEPOLIA" : W.chainId === 31337 ? "LOCALHOST" : "WRONG NETWORK"}
+            {W.network || "FREIGHTER"}
           </span>
         </div>
         <div style={{display:"flex",gap:".75rem",alignItems:"center"}}>
@@ -463,7 +463,7 @@ export default function App() {
       {W.account&&!W.isCorrectNetwork&&(
         <div style={{background:"#f76a6a12",borderBottom:"1px solid #f76a6a30",
           padding:".55rem 2rem",textAlign:"center",fontSize:".83rem",color:"var(--r)"}}>
-          ⚠ Network Mismatch: Please switch to Sepolia (11155111) or Hardhat (31337)
+          ⚠ Network Mismatch: Please switch to Stellar Testnet (TESTNET)
         </div>
       )}
       {W.error&&(
@@ -485,12 +485,12 @@ export default function App() {
           Trustless Crowdfunding<br/>
           <span style={{background:"linear-gradient(90deg,var(--a),var(--a2))",
             WebkitBackgroundClip:"text",WebkitTextFillColor:"transparent"}}>
-            On-Chain.
+            On Stellar.
           </span>
         </h1>
         <p style={{color:"var(--dim)",fontSize:"1.05rem",maxWidth:480,
           margin:"0 auto 2rem",lineHeight:1.7}}>
-          Create vaults, pledge ETH, release on goal met — or refund if it falls short.
+          Create vaults, pledge XLM, release on goal met — or refund if it falls short.
           No middlemen. No custody. Smart contract enforces everything.
         </p>
         {!W.account&&(
@@ -506,7 +506,7 @@ export default function App() {
         padding:"1.2rem 2rem",background:"var(--surf)",
         borderTop:"1px solid var(--brd)",borderBottom:"1px solid var(--brd)",
       }}>
-        {[["Vaults",vaults.length],["Total Raised",`${fmt.eth(totalRaised)} ETH`],["Active",activeN]].map(([l,v])=>(
+        {[["Vaults",vaults.length],["Total Raised",`${fmt.eth(totalRaised)} XLM`],["Active",activeN]].map(([l,v])=>(
           <div key={l} style={{textAlign:"center"}}>
             <div style={{fontSize:"1.55rem",fontWeight:800,fontFamily:"var(--mono)"}}>{v}</div>
             <div style={{fontSize:".67rem",color:"var(--dim)",textTransform:"uppercase",letterSpacing:".1em",marginTop:3}}>{l}</div>
@@ -592,7 +592,7 @@ export default function App() {
         borderTop:"1px solid var(--brd)",padding:"1.5rem 2rem",
         textAlign:"center",color:"var(--dim)",fontSize:".77rem",fontFamily:"var(--mono)",
       }}>
-        VaultPledge · Orange Belt Level 3 dApp · {W.chainId === 11155111 ? "Sepolia Testnet" : "Local Development"} · Solidity 0.8.20 + Ethers.js v6 + Vite
+        VaultPledge · Orange Belt Level 3 dApp · Stellar Testnet (Freighter) · React + Vite
       </footer>
 
       {showCreate&&(
