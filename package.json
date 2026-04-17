@@ -4,6 +4,7 @@
   "description": "Trustless on-chain crowdfunding — Orange Belt Level 3 dApp",
   "scripts": {
     "dev":           "cd frontend && npm run dev",
+    "build":         "cd frontend && npm run build",
     "compile":       "hardhat compile",
     "test":          "hardhat test",
     "coverage":      "hardhat coverage",
