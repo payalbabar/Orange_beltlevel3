@@ -60,6 +60,8 @@ orange-belt/
 
 The project includes unit tests for the core wallet and utility logic.
 
+![Test Results](./test_output.png)
+
 | Test Case | Description | Status |
 |---|---|---|
 | Wallet Initialization | Verifies connection checking logic | ✅ Passing |
