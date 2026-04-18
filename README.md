@@ -22,7 +22,7 @@ This project was built as part of the **Orange Belt Level 3 Challenge**, focusin
 
 ## 🌐 Live Demo & Video
 
-- **Live URL**: [YOUR_VERCEL_LINK_HERE](https://stellar-pay.vercel.app)
+- **Live URL**: [https://orange-beltlevel3-vyoy.vercel.app/](https://orange-beltlevel3-vyoy.vercel.app/)
 - **Demo Video**: [YOUR_YOUTUBE_LINK_HERE](https://youtu.be/example)
 
 ---
