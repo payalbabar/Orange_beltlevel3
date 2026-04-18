@@ -25,7 +25,7 @@ This project represents the final submission for the **Orange Belt Level 3 Chall
 ## 🌐 Live Demo & Video
 
 - **Live Deployment**: [https://orange-beltlevel3-vyoy.vercel.app/](https://orange-beltlevel3-vyoy.vercel.app/)
-- **Demo Video**: [Actual Demo Link Here](https://youtu.be/example)
+- **Demo Video**: [https://youtu.be/4_p_hVhvVBs?si=aUSwuARTgYrMYM2t](https://youtu.be/4_p_hVhvVBs?si=aUSwuARTgYrMYM2t)
 
 ---
 
@@ -67,7 +67,7 @@ orange-belt/
 
 The project uses **Vitest** to ensure the integrity of Stellar address handling and XLM balance calculations.
 
-![Test Results](./test_output.png)
+![Test Results](./test_output.png)  ![alt text](<Screenshot 2026-04-17 211442.png>)
 
 | Test Case | Description | Status |
 |---|---|---|
