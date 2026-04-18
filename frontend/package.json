@@ -7,7 +7,7 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "test":    "vitest run"
+    "test": "vitest run"
   },
   "dependencies": {
     "@stellar/freighter-api": "^6.0.1",
@@ -18,7 +18,7 @@
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^4.3.1",
-    "vite": "^5.4.10",
+    "vite": "^5.4.21",
     "vitest": "^4.1.4"
   }
 }
