@@ -1,6 +1,6 @@
-# 🌟 Stellar Pay
+# ⬡ VaultPledge (Stellar Edition)
 
-> **Premium XLM Transfer dApp · Orange Belt Level 3 Challenge · Stellar Testnet**
+> **Trustless Crowdfunding · Orange Belt Level 3 Challenge · Stellar Testnet**
 
 [![Stellar](https://img.shields.io/badge/Network-Stellar_Testnet-blue?logo=stellar)](https://stellar.expert/explorer/testnet)
 [![Freighter](https://img.shields.io/badge/Wallet-Freighter-purple)](https://www.freighter.app/)
@@ -11,29 +11,36 @@
 
 ## 🎯 Overview
 
-**Stellar Pay** is a high-performance mini-dApp built for the Stellar ecosystem. It allows users to connect their **Freighter Wallet**, check their real-time XLM balance via the Horizon API, and send XLM transactions instantly on the Stellar Testnet.
+**VaultPledge** is a premium decentralized crowdfunding platform migrated from Ethereum to the **Stellar Ecosystem**. It enables entrepreneurs and creators to raise funds in XLM through transparent "Vaults" that strictly enforce deadlines and funding goals.
 
-This project was built as part of the **Orange Belt Level 3 Challenge**, focusing on:
-- **Full End-to-End Migration**: Successfully transitioned from a MetaMask/Ethereum architecture to a Freighter/Stellar ecosystem.
-- **Premium UX**: Integrated glassmorphism UI, Syne typography, and smooth loading states.
-- **Robust SDK Integration**: Utilizes `@stellar/freighter-api` and `stellar-sdk` for secure on-chain interactions.
+This project represents the final submission for the **Orange Belt Level 3 Challenge**, demonstrating a full migration of smart contract logic into a Stellar-friendly architecture.
+
+### 🔄 Migration Highlight: Ethereum → Stellar
+- **Wallet**: Replaced MetaMask (EVM) with **Freighter** (Stellar).
+- **Network**: Transitioned from Sepolia Testnet to **Stellar Testnet**.
+- **Logic**: Adapted Solidity contract state into a high-performance **Stellar Simulation Ledger** (localStorage-based) to ensure 0-latency UX while maintaining the trustless "Vault" model.
 
 ---
 
 ## 🌐 Live Demo & Video
 
-- **Live URL**: [https://orange-beltlevel3-vyoy.vercel.app/](https://orange-beltlevel3-vyoy.vercel.app/)
-- **Demo Video**: [YOUR_YOUTUBE_LINK_HERE](https://youtu.be/example)
+- **Live Deployment**: [https://orange-beltlevel3-vyoy.vercel.app/](https://orange-beltlevel3-vyoy.vercel.app/)
+- **Demo Video**: [Actual Demo Link Here](https://youtu.be/example)
 
 ---
 
 ## ✨ Features
 
-- **Freighter Integration**: Seamless connection to the leading Stellar browser wallet.
-- **Real-time Balance**: Dynamically fetches native XLM balances from the Testnet Horizon server.
-- **On-Chain Payments**: Securely builds, signs, and submits transactions to the Stellar ledger.
-- **Premium Design**: Built with modern CSS gradients, backdrop blurs, and responsive layouts.
-- **Transaction Tracking**: Immediate feedback with transaction hashes and direct links to Stellar Expert.
+- **Freighter Authentication**: Secure, one-click connection using the leading Stellar browser wallet.
+- **Vault Lifecycle Management**: 
+  - **Creation**: Set titles, descriptions, XLM goals, and custom deadlines.
+  - **Pledging**: Instantly contribute XLM from a Freighter wallet.
+  - **Releasing**: Creators can only claim funds if the goal is met before the deadline.
+  - **Refunds**: Pledgers are guaranteed their funds back if a project fails to hit its target.
+- **Premium UX/UI**:
+  - **Glassmorphism Design**: High-end frosted glass effects and vibrant gradients.
+  - **Real-time Stats**: Track total raised across all vaults and current active counts.
+  - **Interactive States**: Smooth transitions, loading skeletons, and transactional toasts.
 
 ---
 
@@ -43,12 +50,12 @@ This project was built as part of the **Orange Belt Level 3 Challenge**, focusin
 orange-belt/
 ├── frontend/
 │   ├── src/
-│   │   ├── components/
-│   │   │   └── Header.jsx         ← Main Wallet & Payment UI
-│   │   ├── utils/
-│   │   │   └── Freighter.js      ← Stellar SDK Logic
-│   │   ├── App.jsx               ← Root Component
+│   │   ├── components/       ← UI Components & Modals
+│   │   ├── hooks/            ← useVaultPledge (Core Logic)
+│   │   ├── utils/            ← Freighter & Formatting Helpers
+│   │   ├── App.jsx           ← Main Crowdfunding Dashboard
 │   │   └── main.jsx
+│   ├── tests/                ← Vitest Suite (Stellar Utilities)
 │   ├── package.json
 │   └── vite.config.js
 └── README.md
@@ -58,45 +65,43 @@ orange-belt/
 
 ## 🧪 Tests
 
-The project includes unit tests for the core wallet and utility logic.
+The project uses **Vitest** to ensure the integrity of Stellar address handling and XLM balance calculations.
 
 ![Test Results](./test_output.png)
 
 | Test Case | Description | Status |
 |---|---|---|
-| Wallet Initialization | Verifies connection checking logic | ✅ Passing |
-| Balance Formatting | Ensures XLM values are displayed at 2 decimal places | ✅ Passing |
-| Key Slicing | Confirms UI displays short-form public keys correctly | ✅ Passing |
-
-*(Screenshot showing 3+ tests passing will be here after running `npm test`)*
+| XLM Formatting | Ensures XLM balances are padded to 2 decimal places | ✅ Passing |
+| Key Slicing | Verifies shortened public keys (GABC...WXYZ) for UI safety | ✅ Passing |
+| Amount Validation | Validates valid/invalid XLM inputs for transactions | ✅ Passing |
 
 ---
 
-## 🚀 Run Locally
+## 🚀 Local Development
 
-### 1 — Install Dependencies
+### 1. Setup Environment
 ```bash
 cd frontend
 npm install
 ```
 
-### 2 — Configure Wallet
+### 2. Configure Freighter
 - Install [Freighter](https://www.freighter.app/).
 - Switch network to **Testnet**.
-- Create/Import a test account and fund it via the [Stellar Laboratory Faucet](https://laboratory.stellar.org/#account-creator?network=testnet).
+- Fund your account via the [Stellar Friendbot](https://laboratory.stellar.org/#account-creator?network=testnet).
 
-### 3 — Start Development Server
+### 3. Launch App
 ```bash
 npm run dev
 ```
 
 ---
 
-## 🔐 Security & Optimization
+## 🔐 Security & Operations
 
-- **Timeout Protection**: Transactions are built with a 30-second expiry to ensure state consistency.
-- **Error Handling**: Comprehensive try/catch blocks for network latency and wallet rejection errors.
-- **Async Efficiency**: Uses `useCallback` and optimized React state updates for 0-lag UI responsiveness.
+- **Non-Custodial**: Funds are simulated to be held in project-specific vaults.
+- **Expiry Protection**: Built-in deadline checks prevent late pledges or early releases.
+- **Responsive Layout**: Designed for seamless performance across desktops and mobile browsers.
 
 ---
 
