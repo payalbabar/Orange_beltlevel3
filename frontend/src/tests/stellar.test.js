@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import { formatBalance, shortenKey, isValidAmount } from '../utils/formatters';
 
-describe('Stellar Pay Utilities', () => {
+describe('VaultPledge Utilities', () => {
   
   it('TC-01 | formatBalance formats balance to 2 decimal places', () => {
     expect(formatBalance('10.5')).toBe('10.50');
