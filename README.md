@@ -27,7 +27,8 @@ This project represents the final submission for the **Orange Belt Level 3 Chall
 - **Live Deployment**: [https://orange-beltlevel3-vyoy.vercel.app/](https://orange-beltlevel3-vyoy.vercel.app/)
 - **Demo Video**: [https://youtu.be/4_p_hVhvVBs?si=aUSwuARTgYrMYM2t](https://youtu.be/4_p_hVhvVBs?si=aUSwuARTgYrMYM2t)
 
----
+<img width="1920" height="1080" alt="Screenshot 2026-04-20 193015" src="https://github.com/user-attachments/assets/ba0f4593-4e32-48b2-be46-836c70629b71" />
+
 
 ## ✨ Features
 
