@@ -67,7 +67,7 @@ orange-belt/
 
 The project uses **Vitest** to ensure the integrity of Stellar address handling and XLM balance calculations.
 
-![Test Results](./test_output.png)  ![alt text](<Screenshot 2026-04-17 211442.png>)
+  ![alt text](<Screenshot 2026-04-17 211442.png>)
 
 | Test Case | Description | Status |
 |---|---|---|
