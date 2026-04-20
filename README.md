@@ -30,7 +30,7 @@ This project represents the final submission for the **Orange Belt Level 3 Chall
 <img width="1920" height="1080" alt="Screenshot 2026-04-20 193015" src="https://github.com/user-attachments/assets/ba0f4593-4e32-48b2-be46-836c70629b71" />
 <img width="1920" height="1080" alt="Screenshot 2026-04-20 193025" src="https://github.com/user-attachments/assets/9b0b9662-f2e9-4d66-8fe4-249e4e6b97be" />
 <img width="1920" height="1080" alt="Screenshot 2026-04-20 193035" src="https://github.com/user-attachments/assets/649e3604-abf7-4279-b0c6-b472e50f645c" />
-<img width="1920" height="1080" alt="Screenshot 2026-04-20 193119" src="https://github.com/user-attachments/assets/c769c203-93c6-4327-b719-606955c69d0d" />
+
 <img width="1920" height="1080" alt="Screenshot 2026-04-20 193131" src="https://github.com/user-attachments/assets/79c38fe0-c764-44ef-b888-b4cc271f31e2" />
 
 
